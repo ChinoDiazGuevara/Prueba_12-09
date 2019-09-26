@@ -5,22 +5,23 @@ package Clases;
 public class Foto {
     private String[] personasEnFoto;
     private String nombreArchivo;
-    private int tamaño;
+    private int tamano;
     private String descripcion;
 
     public Foto(String nombreArchivo) {
         this.nombreArchivo = nombreArchivo;
     }
 
-    public String[] getPersonasEnFoto(int pos, String persona) {
-        return this.personasEnFoto;
+    public int getTamano() {
+        return this.tamano;
     }
 
-    public int getTamaño() {
-        return this.tamaño;
+    public String[] getPersonasEnFoto(int pos) {
+        return personasEnFoto;
     }
 
-    public void setPersonasEnFoto(String[] personasEnFoto) {
+    public void setPersonasEnFoto(int pos,String persona) {
         this.personasEnFoto = personasEnFoto;
-    }    
+    }
+        
 }
