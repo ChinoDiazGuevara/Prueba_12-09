@@ -12,11 +12,11 @@ public class Album {
     public Album(String nombre, int cantidadMaxima) {
         this.nombre = nombre;
         this.cantidadMaxima = cantidadMaxima;
-        this.fotos= new ArrayList<Foto>();
+        this.fotos= new ArrayList<>();
     }
     
     public List<Foto> getFotos() {
-       return new ArrayList<Foto>(this.fotos) ;
+       return new ArrayList<>(this.fotos) ;
     }
 
     public String getNombre() {
