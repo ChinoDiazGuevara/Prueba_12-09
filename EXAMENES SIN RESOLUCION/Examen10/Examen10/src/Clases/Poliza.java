@@ -31,7 +31,8 @@ public class Poliza {
     public void addObjeto(ObjetodeValor o){
         objetodevalor.add(o);
     }
-  public ObjetodeValor buscarObjeto(String nombre){
+
+    public ObjetodeValor buscarObjeto(String nombre){
    for(ObjetodeValor oj:objetodevalor){
        if(oj.getNombre().equals(nombre)){
            return oj;
