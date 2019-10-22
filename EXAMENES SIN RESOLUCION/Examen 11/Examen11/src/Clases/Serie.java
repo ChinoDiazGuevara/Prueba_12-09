@@ -13,6 +13,6 @@ public class Serie {
     }
    public void agregarTemporada(int numero){
        Temporada nueva=new Temporada(numero);
-       temporadas.add(nueva);
+       temporadas.add(nueva);s
    }
 }
