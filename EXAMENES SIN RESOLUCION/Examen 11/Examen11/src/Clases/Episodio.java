@@ -14,11 +14,11 @@ public class Episodio {
     }
 
     public int getNumero() {
-        return numero;
+        return this.numero;
     }
 
     public String getTitulo() {
-        return titulo;
+        return this.titulo;
     }
     public boolean fueVisto(){
         if(visto==true){

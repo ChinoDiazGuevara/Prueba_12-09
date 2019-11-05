@@ -14,11 +14,11 @@ public class Temporada {
     }
 
     public int getNumero() {
-        return numero;
+        return this.numero;
     }
 
     public List<Episodio> getEpisodios() {
-        return episodios;
+        return this.episodios;
     }
     public void agregarEpisodio(int numero,String titulo,boolean visto){
         Episodio epi=new Episodio(numero, titulo, visto);
