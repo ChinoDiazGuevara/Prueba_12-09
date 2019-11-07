@@ -1,0 +1,40 @@
+Public class Consultorio{
+	private int nroConsultorio;
+	private String medico;
+	private List<Turno> turnos;
+
+Public Consultorio(){
+	this.nroConsultorio=nroConsultorio;
+	this.medico=medico;
+	turnos=new ArrayList<>();
+                    }
+
+Public void agregarTurno(Date dia,Time hora,int nroPaciente){
+	Turno agregar=new Turno(dia,hora,nroConsultorio,nroPaciente);
+	turnos.add(agregar);
+}
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+}
