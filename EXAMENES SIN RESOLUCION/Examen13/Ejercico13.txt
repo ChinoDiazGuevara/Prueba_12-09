@@ -13,8 +13,22 @@ Public void agregarTurno(Date dia,Time hora,int nroPaciente){
 	Turno agregar=new Turno(dia,hora,nroConsultorio,nroPaciente);
 	turnos.add(agregar);
 }
- 
 
+public void cancelarTurno(Date dia){
+	for(Turno tno:turnos){
+		if(esMismoDia(dia,turno.getdia())){
+		turnos.remove(tno);
+		}
+	}
+
+}
+
+Ejercicio 3:
+NADA, ERROR, NADA, ERROR, SALIDA.
+
+EJERCICIO 5:
+SELECT * FROM Turno WHERE Turno.CONSULTORIO_nroConsultorio=5 
+ORDER BY Turno.dia
 
 
 
