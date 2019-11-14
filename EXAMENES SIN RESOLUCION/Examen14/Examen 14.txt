@@ -41,14 +41,48 @@ public String toString(){
 
 Implementacion de getMejorSuplente en CURSO
 
-public Profesor getMejorSuplente(){
+public Profesor getMejorSuplente(int distancia){
 	Profesor mejor=null;
 	for(Profesor profsupl:suplentes){
-		
+		if(profsupl.getDistanciaASede()<=distancia && profsupl.getTelefono()!=""){
+                  if(profsupl.getEspecialidades().size()<mejor.getEspecialidades().size()){
+                    mejor=profsupl;
+                    distancia=mejor.getDistanciaASede();
+                  }
+		}
 	}
+        return mejor;
 }
 
 
+public boolean agregarAlumno(Alumno alumnoNuevo){
+    if(alumnoNuevo.getLocalidad().equals("Posadas")&& modalidad.equals("Presencial")&& alumnos.size()<=cupo){
+        alumnos.add(alumnoNuevo);
+        return true;
+    }
+    if(modalidad.equals("Virtual")){
+        alumnos.add(alumnoNuevo);
+    }
+    return false;
+}
+
+c1.agregarAlumno(a1); 	
+c1.agregarAlumno(a2); 
+c1.agregarAlumno(a3);        
+c2.agregarAlumno(a1); 
+c2.agregarAlumno(a2); 
+c2.agregarAlumno(a3);        
+c3.agregarAlumno(a1); 
+c3.agregarAlumno(a2); 
+c3.agregarAlumno(a3);
+System.out.println(c1.getAlumnos().size()); 3
+System.out.println(c2.getAlumnos().size()); 2
+System.out.println(c3.getAlumnos().size()); 2
+
+
+EJERCICIO 5
+SELECT Alumno.localidad, AVG(Nota.nota) Curso.nombre FROM Nota INNER JOIN Alumno ON Nota.idAlumno=Alumno.idAlumno 
+INNER JOIN Curso ON Nota.idCurso=Curso.idcurso WHERE Curso.nombre="Java" && Alumno.localidad!="Posadas" ORDER BY Nota.nota
 
 
 
