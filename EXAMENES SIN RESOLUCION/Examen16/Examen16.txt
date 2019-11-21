@@ -1,0 +1,52 @@
+public class Alumno extends Persona{
+	private int añoDeIngreso;
+	private List<Curso> cursadas;
+
+public Alumno (String nombre, String apellido, int dni, int añoDeIngreso){
+	super(nombre,apellido,dni);
+	this.añoDeIngreso=añoDeIngreso;
+	cursadas=new ArrayList<>();
+}
+
+public int getAñoDelIngreso(){
+	return this.añoDeIngreso;
+}
+
+public void addCurso(Curso curso){
+	if(!cursadas.contain(curso)){
+		this.cursadas.add(curso);
+	}
+}
+
+Ejercicio 2:
+Se implementa en la clase Profesor.
+
+public List<Curso> Dictado(int añoPorParametro){
+	List<Curso> listaCursos=null;
+	for(Curso dictados: cursosDictados){
+		for(Alumno alu:alumnos){
+			if(alu.getAñoDelIngreso()<añoPorParametro && !listaCursos.contain(dictados)){
+				listaCursos.add(dictados);	
+			}
+		}
+	}
+return listaCursos;
+}
+}
+
+
+Ejercicio 3: Clase Curso
+public boolean agregarAlumno (Alumno nuevoAlumno){
+	if(alumnos.size()<maximoAlumnos){
+		alumnos.add(nuevoAlumno);
+		alu.addcurso(this);
+		}	
+}
+
+Ejercicio 4:
+
+
+Ejercicio 5:
+SELECT Alumno.añoDeIngreso COUNT(Alumno.añoDeIngreso) FROM Alumno INNER JOIN Inscriptos_a_Curso.Alumno_dni 
+ON Alumno.dni=Inscriptos_a_Curso.Alumno_dni
+GROUP BY Alumno.añoDeIngreso
