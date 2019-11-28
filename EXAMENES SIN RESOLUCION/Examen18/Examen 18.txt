@@ -1,0 +1,40 @@
+EJERCICIO 1:
+public TrabajoPracticoIntegrador extends TrabajoPractico{
+	private float puntajeMinimoPorEjercicio;
+
+public TrabajoPracticoIntegrador(String tema, float puntajeDeAprobacion, float puntajeMinimoPorEjercicio){
+	super(tema,puntajeDeAprobacion);
+	this.puntajeMinimoPorEjercicio=puntajeMinimoPorEjercicio;
+}
+
+@Override
+public boolean addEjercicio(Ejercicio ejercicio){
+List<Ejercicio> ejercicios=super.getEjercicios();
+		if(ejercicio.getPuntajeMaximo()>this.puntajeMinimoPorEjercicio){
+			ejercicios.add(ejercicio);
+			return true;
+		}
+return false;
+}
+
+EJERCICIO 2: Se aplica en la clase Alumno
+
+public boolean condicionAlumno(String tema){
+for(TrabajoPractico trabajos:trabajosPracticos){
+	for(List<String> resp:respuestas){
+		if(trabajos.esDeTema(tema)&&resp.get().estaAprobado(resp)){
+			return true;
+		}
+	}
+}
+return false;
+
+}
+
+
+
+
+
+
+
+}

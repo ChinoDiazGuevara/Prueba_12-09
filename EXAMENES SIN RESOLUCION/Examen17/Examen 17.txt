@@ -6,6 +6,7 @@ public ExamenEspecial(String tema, float puntajeAprobacion, float penalizacion){
 	this.penalizacionRespuestaIncorrecta=penalizacion;
 	
 }
+
 @Override
 public void addPregunta(Pregunta pregunta){
 		if(pregunta.getPuntaje>penalizacionRespuestaIncorrecta){
@@ -18,9 +19,73 @@ public float getPenalizacionRespuestaIncorrecta(){
 	return penalizacionRespuestaIncorrecta;
 }
 
+}
 
+Ejercicio 2: 
+Se implementa en la clase Examen
+public float NotaDeExamen(List<integer> respuestas){
+float puntaje=0.0;
+	for(Pregunta preg:preguntas){
+		for(int resp:respuestas){
+			if(preg.esCorrecta(resp)){
+				puntaje=puntaje+preg.getPuntaje();
+			}
+		}
+	}
+	return puntaje;
+}
 
+public List<Pregunta> getPreguntas(){
+	return preguntas;
+}
 
+Se implementa en la clase ExamenEspecial
+@Override
+public float NotaDeExamen(List<integer> respuestas){
+float puntaje=0.0;
+List<Pregunta> preguntas=super.getPreguntas();
+	
+	for (Pregunta preg:preguntas)
+	for(integer resp:respuestas){
+		if(preg.esCorrecta(resp)){
+			puntaje=puntaje+preg.getPuntaje();
+		}
+		else{
+			puntaje=puntaje-getPenalizacionRespuestaIncorrecta();
+		}
+	
+}
+	return puntaje;
+}
 
 
 }
+
+EJERCICIO 3:
+En clase Alumno
+public boolean rendirExamen(Examen examen, List<integer> respuestas){
+	RendicionDeExamen rde=new (examen, respuestas);
+	if(!examenesRendidos.contains(rde)&&!rde.estaAprobado()){
+		examenesRendidos.add(rde);
+		return true;
+	}
+return false;
+}
+
+EJERCICIO 4:
+Juan capitales de provincia Aprobado 
+Alberto capitales de provincia Desaprobado  
+Juan Capitales de provincia Aprobado
+
+EJERCICIO 5:
+SELECT Alumno.nombre,Examen.tema,COUNT (SELECT RendicionDeExamen.Examen_idExamen FROM RendicionDeExamen)
+FROM Alumno INNER JOIN RendicionDeExamen ON Alumno.dni=Alumno_DNI
+INNER JOIN Examen ON RendicionDeExamen.Examen_idExamen=Examen.idExamen
+WHERE RendicionDeExamen.notaObtenida>Examen.PuntajeAprobacion GROUP BY Alumno.nombre ORDER BY ASC
+
+Respuesta:
+Han Solo Pilotaje de Halcon Milenario 3
+Luke Skywalker Telepatia proyectiva 1
+Luke Skywalker Pelea con sable de luz 2
+Darth Vader Telepatia proyectiva 1
+Darth Vader  Pelea con sable de luz 1
