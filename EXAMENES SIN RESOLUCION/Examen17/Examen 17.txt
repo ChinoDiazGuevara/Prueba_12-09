@@ -78,10 +78,13 @@ Alberto capitales de provincia Desaprobado
 Juan Capitales de provincia Aprobado
 
 EJERCICIO 5:
-SELECT Alumno.nombre,Examen.tema,COUNT (SELECT RendicionDeExamen.Examen_idExamen FROM RendicionDeExamen)
-FROM Alumno INNER JOIN RendicionDeExamen ON Alumno.dni=Alumno_DNI
+SELECT Alumno.nombre,Examen.tema,COUNT (RendicionDeExamen.Examen_idExamen)
+FROM Alumno 
+INNER JOIN RendicionDeExamen ON Alumno.dni=Alumno_DNI
 INNER JOIN Examen ON RendicionDeExamen.Examen_idExamen=Examen.idExamen
-WHERE RendicionDeExamen.notaObtenida>Examen.PuntajeAprobacion GROUP BY Alumno.nombre ORDER BY ASC
+WHERE RendicionDeExamen.notaObtenida>Examen.PuntajeAprobacion 
+GROUP BY Alumno.nombre,Examen.tema
+ORDER BY ASC
 
 Respuesta:
 Han Solo Pilotaje de Halcon Milenario 3

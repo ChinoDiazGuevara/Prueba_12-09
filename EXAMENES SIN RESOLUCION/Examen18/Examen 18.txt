@@ -9,13 +9,13 @@ public TrabajoPracticoIntegrador(String tema, float puntajeDeAprobacion, float p
 
 @Override
 public boolean addEjercicio(Ejercicio ejercicio){
-List<Ejercicio> ejercicios=super.getEjercicios();
-		if(ejercicio.getPuntajeMaximo()>this.puntajeMinimoPorEjercicio){
-			ejercicios.add(ejercicio);
-			return true;
-		}
+	if(ejercicio.getPuntajeMaximo()>this.puntajeMinimoPorEjercicio){
+		return super.addEjercicio(ejercicio);
+	}
 return false;
 }
+
+
 
 EJERCICIO 2: Se aplica en la clase Alumno
 
@@ -28,13 +28,19 @@ for(TrabajoPractico trabajos:trabajosPracticos){
 	}
 }
 return false;
-
+}
 }
 
-
-
-
-
-
+EJERCICIO 3:
+@Override
+public boolean estaAprobado(List<String> respuestas){
+	List<Ejercicio>ejercicios=super.getEjercicios();
+	for(List<Ejericio> lista:ejercicios){
+		for(List<String>resp:respuestas){
+			if(lista.resueltoCorrectamente(resp)){
+				
+			}		
+		}
+	}
 
 }
