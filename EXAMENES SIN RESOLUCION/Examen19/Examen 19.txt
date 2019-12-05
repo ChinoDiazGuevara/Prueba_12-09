@@ -1,0 +1,25 @@
+Ejercicio 1:
+public class CursoEspecial extends Curso{
+private float notaMinimaTrabajo;
+
+public CursoEspecial(String nombre, String modalidad, float minimoNotaCurso, float minimoNotaTrabajo){
+	super(nombre,modalidad,NotaCurso);
+	this.minimoNotaTrabajo=minimoNotaTrabajo;
+}
+public float getNotaMinimaTrabajo(){
+	return this.notaMinimaTrabajo;
+}
+public void setNotaMinimaTrabajo(float nota){
+	this.nota=nota;
+}
+
+
+
+
+
+
+
+
+
+
+}

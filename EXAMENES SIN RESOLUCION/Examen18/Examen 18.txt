@@ -34,13 +34,34 @@ return false;
 EJERCICIO 3:
 @Override
 public boolean estaAprobado(List<String> respuestas){
-	List<Ejercicio>ejercicios=super.getEjercicios();
-	for(List<Ejericio> lista:ejercicios){
-		for(List<String>resp:respuestas){
-			if(lista.resueltoCorrectamente(resp)){
-				
-			}		
+int correctas=0;
+	for(Ejercicio ejer:ejercicios){
+	for(String resp:respuestas){
+		if(ejer.resueltoCorrectamente(resp)){
+			correctas++;
 		}
 	}
-
+}	
+ if(super.estaAprobado(resp)&&correctas>minimoEjerciciosCorrectos){
+	return true;
+	}
+	return false;
 }
+
+EJERCICIO 4:
+ejercicio 1 ejercicio 2 ejercicio 3 ejercicio 4
+ejercicio 3 ejercicio 4 ejercicio 5
+
+EJERCICIO 5:
+
+SELECT (Respuesta.idAlumno) SUM(Respuesta.puntaje)
+FROM Respuesta
+INNER JOIN Ejercicio
+ON Respuesta.idEjercicio=Ejercicio.idEjercicio
+INNER JOIN TrabajoPractico
+ON Ejercicio.idTrabajoPractico=TrabajoPractico.idTrabajoPractico
+WHERE TrabajoPractico.tema="geografia politica"
+GROUP BY Ejercicio.puntajeMaximo ORDER BY DESC 
+
+3  6
+2  7
