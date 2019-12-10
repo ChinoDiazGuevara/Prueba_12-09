@@ -1,0 +1,63 @@
+public class ComboEspecial extends Combo{
+	private List<Float> preciosObsequios;
+	private float valorCanjeEspecial;
+public ComboEspecial(String nombre, float precio, float puntosDescuento, List<Float> preciosObsequios, float valorCanjeEspecial){
+	super(nombre,precio,puntosDescuento);
+	this.preciosObsequios=preciosObsequios;
+	this.valorCanjeEspecial=valorCanjeEspecial;
+}
+
+public List<Float> getPreciosObsequios(){
+	return this.preciosObsequios8;
+}
+
+public float gatValorCanjeEspecial(){
+	return this.valorCanjeEspecial;
+}
+
+
+}
+
+EJERCIO 2: En clase 
+@Override 
+public boolean esPosibleCanjearCombo(float puntosAcumulados){
+float sumadepuntos=0;
+	for(float precio:preciosObsequios){
+		sumadepuntos=sumadepuntos+precio.get();
+	}
+return super.esPosibleCanjearCombo(puntosAcumulados) && sumadepuntos>valorCanjeEspecial;
+}
+
+EJERCICO 3: Se realiza en Cerveceria
+public int ObtenerNumero(String nombreDeCombo){
+int contador=0;
+for(OrdenDeCompra orden:ordenesDeCompra){
+Combo compra=orden.getCombo();
+	if(nombreDeCombo.equals(compra.getNombre()){
+		contador++;
+	}
+}
+return contador;
+}
+
+
+EJERCICIO 4: Resultados
+270        375
+159.2    325
+250       325
+
+
+EJERCICO 5:
+SELECT Cliente.nombre 
+COUNT(OrdenDeCompra.Combo_idCombo)
+FROM CLIENTE
+INNER JOIN OrdenDeCompra
+ON Cliente.dni=OrdenDeCompra.Cliente_DNI
+INNER JOIN Combo
+ON OrdenDeCompra.Combo_idCombo=Combo.idCombo
+WHERE OrdenDeCompra.descuento>=0.10 AND Combo.nombre="Avispa"
+GROUP BY Cliente.nombre
+ORDER BY ASC
+ 
+RESULTADO:
+Mariana 1
